@@ -6,10 +6,10 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     conn = pymysql.connect(
-    host="172.17.0.1",
-    user="flaskuser",
-    password="password123",
-    database="projectdb"
+        host="172.17.0.1",
+        user="flaskuser",
+        password="password123",
+        database="projectdb"
     )
 
     cursor = conn.cursor()
@@ -27,5 +27,4 @@ def home():
     return output + "<br><h1>Version 6 CI/CD Success!</h1>"
 
 if __name__ == "__main__":
-
     app.run(host="0.0.0.0", port=8080)
