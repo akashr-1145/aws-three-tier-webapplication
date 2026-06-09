@@ -21,9 +21,16 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ~/Downloads
+            cd ~/repo/aws-three-tier-webapplication
+
             git pull
+
             docker stop flask-container || true
             docker rm flask-container || true
+
             docker build -t flask-app .
-            docker run -d -p 8080:8080 --name flask-container flask-app
+
+            docker run -d \
+              -p 8080:8080 \
+              --name flask-container \
+              flask-app
