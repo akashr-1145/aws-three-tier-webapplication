@@ -24,7 +24,7 @@ def home():
 
     conn.close()
 
-    return output
+    return output + "<br><h1>Version 6 CI/CD Success!</h1>"
 
 if __name__ == "__main__":
 
